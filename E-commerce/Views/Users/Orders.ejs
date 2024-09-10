@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("Links.ejs") -%>
+</head>
+<body>
+    <%- include("Navbar.ejs") -%>
+      
+      <% result.forEach((data)=>{ %>
+        <div class="card mt-3 mx-3">
+          <div class="card-header">
+            Orders
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%- data.FirstName %> <%- data.LastName %></h5>
+            <p class="card-text"><%- data.Address %></p>
+            <p class="card-text"><%- data.Phone %></p>
+          </div>
+          <div class="mx-4">
+
+            <% data.Products.forEach((item)=>{ %>
+              <div class="card mb-3" style="max-width: 100%;">
+                <div class="row g-0">
+                  <div class="col-md-4 ">
+                    <img src="../../public/Upload/<%- item.Image %>" class="img-fluid rounded-start" alt="..." style="max-height: 300px; max-width: 400px;" width="300px" >
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><%- item.Title %></h5>
+                      <p class="card-text"></p>
+                      <p class="card-text"><small class="text-body-secondary">Price <%- item.Price %>₹</small></p>
+                     
+                      <p class="card-text"><small class="text-body-secondary">Quantity <%- item.Quantity %></small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% }) %>
+            </div>
+              <p class="text-center ml-3 text-success text-bold">Grand Total = <%- data.total %>₹</p>
+        </div>
+        <%})%>
+</body>
+</html>

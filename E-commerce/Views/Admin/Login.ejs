@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../Users/Links.ejs") -%>
+  </head>
+  <body class="bg-dark">
+  
+    <div class="container-fluid">
+      <div class="row my-5"></div>
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 text-center border rounded p-5 bg-trans">
+          <form action="/admin/login" method="post">
+            <h1 class="h3 mb-3 text-light my-5">Sign in</h1>
+
+            <div class="form-floating my-2">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder="Username"
+                name="Username"
+              />
+              <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating my-2">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+                name="Password"
+              />
+              <label for="floatingPassword">Password</label>
+            </div>
+
+            <button class="btn btn-danger mt-3 btn-lg py-2" type="submit">
+              Sign in
+            </button>
+
+            <p class="mt-2 mb-3 text-light">All right reserved © 2023-2024</p>
+          </form>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+  </body>
+</html>

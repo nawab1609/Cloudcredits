@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../Users/Links.ejs") -%>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                
+                <%- include("SideBar.ejs") -%>
+        </div>
+        <div class="col-sm-9">
+            
+            <div class="row mt-5">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                <h1 class="text-center">Update Product</h1>
+                <form action="/admin/Updatedone/<%-result._id%>" method="Post" enctype="multipart/form-data">
+                    <label for="" class="form-label">Title</label>
+                    <input type="text" placeholder="Enter product title" class="form-control my-2" name="Title" value="<%-result.Title%>" >
+                    <label for="" class="form-label">Image</label>
+                    <input type="file" class="form-control my-2" name="Image">
+                    <label for="" class="form-label">Price</label>
+                    <input type="text" placeholder="Enter product Price" class="form-control my-2" name="Price" value="<%-result.Price %>" >
+                    <label for="" class="form-label">Description</label>
+                    <textarea id="" class="form-control" placeholder="Enter product description...." name="Description" value="<%-result.Description -%>"><%-result.Description -%></textarea>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </div>
+              </form>
+            </div>
+            <div class="col-sm-4"></div>
+         </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

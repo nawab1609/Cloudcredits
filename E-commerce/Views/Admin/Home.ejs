@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include("../Users/Links.ejs") -%>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-sm-3">
+                <%- include("SideBar.ejs") -%>
+            </div>
+            <div class="col-sm-9">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Delete</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% result.forEach((data,index)=>{ %>
+                            <tr>
+                                <td><%- index+1 %></td>
+                                <td><%- data.Title %></td>
+                                <td><img src="../../public/Upload/<%- data.Image %>" width="50px"/></td>
+                                <td><%- data.Price %></td>
+                                <td><%- data.Description %></td>
+                                <td><a href="/admin/delete/<%- data._id %>"><button class="btn btn-danger">Delete</button></a></td>
+                                <td><a href="/admin/Update/<%- data._id %>"><button class="btn btn-warning">Update</button></a></td>
+                            </tr>
+                       <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("Links.ejs") -%>
+  </head>
+  <body class="bg-dark">
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-4">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Sign up
+                  </h1>
+                </div>
+                <div class="col-sm-3"></div>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form action="/user/" method="post" autocomplete="off">
+            <div class="modal-body">
+              <div class="form-floating my-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Username"
+                  name="Username"
+                />
+                <label for="floatingInput">Username</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  name="Email"
+                />
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating my-2">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Password"
+                  name="Password"
+                />
+                <label for="floatingPassword">Password</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-5"></div>
+                  <div class="col-sm-3">
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      data-bs-dismiss="modal"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                  <div class="col-sm-4"></div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row my-5"></div>
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 text-center border rounded p-5 bg-trans">
+          <% if(Message!=""){ %>
+          <div class="alert alert-success alert-dismissible">
+               <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <%- Message %>
+            </div>
+          <% } %>
+          <form action="/user/login" method="post">
+            <h1 class="h3 mb-3 text-light my-5">Sign in</h1>
+
+            <div class="form-floating my-2">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder="Username"
+                name="Username"
+              />
+              <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating my-2">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+                name="Password"
+              />
+              <label for="floatingPassword">Password</label>
+            </div>
+
+            <button class="btn btn-primary mt-3 btn-lg py-2" type="submit">
+              Sign in
+            </button>
+            <p
+              class="my-3 text-light cursor"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Sign up ?
+            </p>
+
+            <p class="mt-2 mb-3 text-light">All right reserved © 2023-2024</p>
+          </form>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+  </body>
+</html>

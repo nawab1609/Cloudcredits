@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("Links.ejs") -%>
+  </head>
+  <body>
+    <%- include("Navbar.ejs") -%>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="card text-center">
+            <img
+              src="../../public/Images/UserLogo.jpg"
+              alt=""
+              class="img-fluid rounded-circle"
+            />
+            <div class="card-body mt-3">
+              <h3 class="my-3">Username = <%- Data.Username %></h3>
+              <h3 class="my-3">Email = <%- Data.Email %></h3>
+              <h3 class="my-3">Password = <%- Data.Password %></h3>
+              <a href="/user/UpdateProfile">
+                <button class="btn btn-warning mt-3">Update</button></a
+              >
+              <br />
+              <br />
+              <a href="/user/deleteProfile" class="text-danger text-decoration-none">
+                Delete My Profile
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+  </body>
+</html>

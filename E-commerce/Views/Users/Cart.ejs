@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("Links.ejs") -%>
+</head>
+<body>
+    <%- include("Navbar.ejs") -%>
+    <div>
+        
+        <% if(data.length>0){ 
+
+            let total=0; %>
+    
+                <table class='table text-center table-bordered'>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Quantity</th>
+                        <th>Delete</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                 <% data.forEach((data,index)=>{ %>
+                    
+                    <tr>
+                        <td><%- index+1 %></td>
+                        <td><%- data.Title %></td>
+                        <td><img src="../../public/Upload/<%- data.Image %>" alt="" width="50px" /></td>
+                        <td>
+                        <a href="/user/UpdateQuantity/<%- data.Id %>/-1"> <button class='btn btn-danger' >-</button>  </a>  
+                        <span><%- data.Quantity %></span>
+                       <a href="/user/UpdateQuantity/<%- data.Id %>/+1"> <button class='btn btn-success' >+</button>  </a>  
+                        </td>
+                        <td><button class='btn btn-danger' onclick="deleteItem('<%- data.Id %>')" >Delete</button></td>
+                        <td><%- data.Price %></td>
+                        <td><%- parseFloat(data.Quantity) * parseFloat(data.Price) %></td>
+
+                        <% total+= parseFloat(data.Quantity) * parseFloat(data.Price) %>
+                    </tr>
+                 <% }) %>
+                </table>
+                <div class="container">
+                  <div class="row ">
+                      <div class="col-10 "></div><div class="col-2 text-danger">Grand Total:- <span class='text-success'><%- total %></span></div>
+                      <div class="col-10 "></div><div class="col-2 text-danger">
+                                <form action="/user/address" method="post">
+                                    <input type="hidden" value="<%- total %>" name="total">
+                                    <input type="submit" class="btn btn-success">
+                                </form>
+                      </div>
+                  </div>
+                </div>
+               <% } else{ %>
+                        <h1 class="text-center">Cart is empty</h1>
+              <% } %>
+           
+          
+      </div>
+
+     
+</body>
+</html>
+
+
+<script>
+    function deleteItem(ids){
+        if(confirm("Do you want to delete ?")){
+            window.location.href=`/user/deleteItem/${ids}`;
+        }
+    }
+</script>

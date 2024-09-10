@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("Links.ejs") -%>
+  </head>
+  <body>
+    
+    <%- include("Navbar.ejs") -%>
+    <div class="container">
+      <div class="row">
+        <% Result.forEach((data)=>{ %>
+            <div class="col-sm-4">
+              <div class="card text-center">
+                  <img src="../../public/Upload/<%- data.Image %>" alt="" class="card-img-top" height="400px">
+                <div class="card-body">
+                  <h3 class="card-text"><%-data.Title%></h3>
+                  <h3 class="card-text my-3"><%-data.Price%> ₹</h3>
+                  <!-- <button class="btn btn-warning">Add to cart</button> -->
+
+                  <form action="/user/AddToCart" method="post">
+                    <input type="hidden" value="<%- data._id %>" name="id">
+                    <input type="hidden" value="<%- data.Title %>" name="title">
+                    <input type="hidden" value="<%- data.Price %>" name="price">
+                    <input type="hidden" value="<%- data.Image %>" name="image">
+                    <input type="submit" class="btn btn-warning" value="Add to cart">
+                  </form>
+                </div>
+
+              </div>
+            </div>
+       <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
